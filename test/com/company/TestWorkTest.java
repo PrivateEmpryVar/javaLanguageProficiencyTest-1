@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -53,9 +54,9 @@ class TestWorkTest {
     @Test
     void calcCharacterFrequency() {
         String text = "маМа мыла рАму";
-        assertEquals("{а=4,  =2, р=1, у=1, ы=1, л=1, м=4}", tw.calcCharacterFrequency(text));
+        assertEquals("{ =2, а=4, л=1, м=4, р=1, у=1, ы=1}", tw.calcCharacterFrequency(text));
         text = "Посчитать сколько раз каждый символ встречается в слове, игнорируя регистр";
-        assertEquals("{р=6, с=7, т=5, у=1, ч=2, ы=1, ь=2, я=2,  =9, ,=1, а=4, в=4, г=2, д=1, е=4, ж=1, з=1, и=5, й=1, к=3, л=3, м=1, н=1, о=6, п=1}",
+        assertEquals("{ =9, ,=1, а=4, в=4, г=2, д=1, е=4, ж=1, з=1, и=5, й=1, к=3, л=3, м=1, н=1, о=6, п=1, р=6, с=7, т=5, у=1, ч=2, ы=1, ь=2, я=2}",
                 tw.calcCharacterFrequency(text));
     }
 

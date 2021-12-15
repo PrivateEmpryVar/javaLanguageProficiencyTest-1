@@ -1,5 +1,9 @@
 package com.company;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 public class TestWork {
 
     public int maximumOf2(int a, int b) {
@@ -52,5 +56,17 @@ public class TestWork {
     public boolean isWordStartWith(String start, String word) {
 //        TODO 8. Определить начинается ли слова с определённой последовательности символов, игнорируя регистр.
         return false;
+    }
+
+    public String applyRurSuffix(long count) {
+        final String MONEY_ONE = "рубль";
+        final String MONEY_MANY = "рублей";
+        final String MONEY_OTHER_MANY = "рубля";
+
+//        TODO 9. Верните слово "рубль" в род. падеже, в зависимости от введённого количества
+//          Пример:
+//              Ввод: 23
+//              Вывод: рубля
+        return null;
     }
 }

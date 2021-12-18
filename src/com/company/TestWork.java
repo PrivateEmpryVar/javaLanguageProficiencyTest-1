@@ -53,19 +53,24 @@ public class TestWork {
 
     public String calcCharacterFrequency(String text) {
         text = text.toLowerCase();
-        char[] chars = text.toCharArray();
-        int [] indexOfChars = new int[1200];
-        String output = "";
-
-        for(int i = 0; i < chars.length; i++) {
-            indexOfChars[chars[i]]++;
+        String res = "";
+        
+        for (char c: text.toCharArray()) {
+            int count = 0;
+            for (char t: text.toCharArray()) {
+                if (c == t) count++;
+            }
+            String t = c + "=" + count;
+            if (!res.contains(t)) res += t + ", ";
         }
+        
+        String[] tmp = res.substring(0, res.length() - 2)
+            .split(", ");
+        Arrays.sort(tmp);
+        res = Arrays.toString(tmp);
+        
+        return "{" + res.substring (1, res.length() - 1) + "}";
 
-        for (int i = 1000; i < indexOfChars.length; i++) {
-            if (indexOfChars[i] != 0)
-                output = (char)i + "=" + indexOfChars[i];
-        }
-        return output;
     }
 
     public boolean isWordStartWith(String start, String word) {

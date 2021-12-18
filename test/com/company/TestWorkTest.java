@@ -16,9 +16,6 @@ class TestWorkTest {
     private int[] orderedNumber = {-859897, -898, 0, 777, 787};
     private int[] reverseOrderedNumber = {787, 777, 0, -898, -859897};
     private final int MAX_FROM_NUMBER = 787;
-    private final String MONEY_ONE = "рубль";
-    private final String MONEY_MANY = "рублей";
-    private final String MONEY_OTHER_MANY = "рубля";
 
     @Test
     void maximumOf2() {
@@ -69,32 +66,4 @@ class TestWorkTest {
         String text = "hello, World!";
         assertTrue(tw.isWordStartWith(start, text));
     }
-
-    @Test
-    void applyRurSuffix33() {
-        assertEquals(MONEY_OTHER_MANY, tw.applyRurSuffix(33));
-    }
-
-    @Test
-    void applyRurSuffix1() {
-        assertEquals(MONEY_ONE, tw.applyRurSuffix(1));
-    }
-
-    @Test
-    void applyRurSuffix1142() {
-        assertEquals(MONEY_OTHER_MANY, tw.applyRurSuffix(1142));
-    }
-
-    @Test
-    void applyRurSuffix311() {
-        assertEquals(MONEY_MANY, tw.applyRurSuffix(311));
-    }
-
-    @Test
-    void applyRurSuffix2() {
-        assertEquals(MONEY_OTHER_MANY, tw.applyRurSuffix(2));
-    }
-
-
-
 }

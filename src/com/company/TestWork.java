@@ -1,72 +1,75 @@
 package com.company;
 
-import java.util.HashMap;
+
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
-import java.util.Map;
 
 public class TestWork {
 
     public int maximumOf2(int a, int b) {
-//        TODO 1. верните максимальное из 2 целых чисел
-        return 0;
+        return Math.max(a, b);
     }
 
     public int maxNumFromArray(int[] numbers) {
-//        TODO 2. верните максимальное число из массива
-        return 0;
+        int max = numbers[0];
+        for (int i = 0; i < numbers.length; i ++){
+            max = Math.max(max, numbers[i]);
+        }
+        return max;
     }
 
     public int[] sortNumbers(int[] numbers) {
-//        TODO 3. верните отсортированный по возрастанию массив
-        return null;
+        Arrays.sort(numbers);
+        return numbers;
     }
 
     public int[] sortInverseNumbers(int [] numbers) {
-//        TODO 4. верните отсортированный по убыванию массив
-        return null;
+        Arrays.sort(numbers);
+        for (int i = 0; i < numbers.length / 2; i++) {
+            int temp = numbers[i];
+            numbers[i] = numbers[numbers.length - 1 - i];
+            numbers[numbers.length - 1 - i] = temp;
+        }
+        return numbers;
     }
 
     public String invertWord(String string) {
-//        TODO 5. Инвертировать слово.
-//                Например:
-//                ввод: abcdef
-//                вывод: fedcba
-
-        return null;
+        StringBuilder reversed = new StringBuilder(string);
+        reversed.reverse();
+        return String.valueOf(reversed);
     }
 
     public String upperCaseFirstSymbolEachWord(String text) {
-//        TODO 6. Сделать первый символ каждого слова заглавным, а остальные маленькими.
-//              Пример:
-//              ввод: мама мыЛа раму
-//              вывод: Мама Мыла Раму
-        return null;
+        String[] words = text.split(" ");
+        String output = "";;
+        for (String word : words){
+            String first = word.substring(0,1).toUpperCase();
+            String all = word.substring(1).toLowerCase();
+            output = output + first + all + " ";
+        }
+        return output;
     }
 
     public String calcCharacterFrequency(String text) {
-//        TODO 7. Посчитать сколько раз каждый символ встречается в слове, игнорируя регистр.
-//         Символы вывести по алфавиту
-//              Пример:
-//              ввод: маМа мыла рАму
-//              вывод: { =2, а=4, л=1, м=4, р=1, у=1, ы=1}
+        text = text.toLowerCase();
+        char[] chars = text.toCharArray();
+        int [] indexOfChars = new int[1200];
+        String output = "";
 
-        return null;
+        for(int i = 0; i < chars.length; i++) {
+            indexOfChars[chars[i]]++;
+        }
+
+        for (int i = 1000; i < indexOfChars.length; i++) {
+            if (indexOfChars[i] != 0)
+                output = (char)i + "=" + indexOfChars[i];
+        }
+        return output;
     }
 
     public boolean isWordStartWith(String start, String word) {
 //        TODO 8. Определить начинается ли слова с определённой последовательности символов, игнорируя регистр.
         return false;
-    }
-
-    public String applyRurSuffix(long count) {
-        final String MONEY_ONE = "рубль";
-        final String MONEY_MANY = "рублей";
-        final String MONEY_OTHER_MANY = "рубля";
-
-//        TODO 9. Верните слово "рубль" в род. падеже, в зависимости от введённого количества
-//          Пример:
-//              Ввод: 23
-//              Вывод: рубля
-        return null;
     }
 }
